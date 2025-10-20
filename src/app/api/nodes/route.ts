@@ -38,7 +38,7 @@ export async function GET() {
       return { ...node, status };
     });
 
-    return NextResponse.json(rows);
+    return NextResponse.json(data);
   } catch (error) {
     console.error('Error fetching node data:', error);
     return NextResponse.json({ error: 'Failed to fetch node data' }, { status: 500 });
