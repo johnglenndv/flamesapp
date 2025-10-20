@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
@@ -402,7 +401,18 @@ const allNodes = nodes;
               onZoomEnd={setMapZoom}
               onSaveLocation={handleSaveLocation}
               onCoordsSearch={handleCoordsSearch}
-              onNodeClick={setSelectedNodeData}
+              onNodeClick={(nodeFromMap) => {
+                // The 'nodeFromMap' object is coming from the map component
+                // and its type definition is missing 'gatewayId'.
+
+                // We find the *full* node object from our local 'allNodes' state,
+                // which we know has the correct 'gatewayId' property.
+                const fullNode = allNodes.find(n => n.id === nodeFromMap.id);
+                
+                // Set the state with the full, correct node object.
+                setSelectedNodeData(fullNode || null);
+              }}
+              
             />
           </Card>
           
@@ -518,37 +528,37 @@ const allNodes = nodes;
                 </CardHeader>
                 <CardContent className="text-sm space-y-4">
                     {allIncidents.map(incident => (
-                      <Collapsible key={incident.id} className="border-b pb-2 last:border-b-0">
-                        <div className="flex justify-between items-center w-full group">
-                            <div>
+                        <Collapsible key={incident.id} className="border-b pb-2 last:border-b-0">
+                          <div className="flex justify-between items-center w-full group">
+                              <div>
                                 <p className="font-semibold">{incident.location}</p>
                                 <p className="text-xs text-muted-foreground">Status: {incident.status}</p>
-                            </div>
-                            <CollapsibleTrigger asChild>
+                              </div>
+                              <CollapsibleTrigger asChild>
                                 <Button variant="outline" size="sm" className="h-7">Details</Button>
-                            </CollapsibleTrigger>
-                        </div>
-                        <CollapsibleContent className="space-y-2 pt-2">
-                           <div className="flex items-center gap-2">
-                              <Users className="w-4 h-4 text-muted-foreground"/>
-                              <span>Assigned Team: <strong>{incident.team}</strong></span>
-                           </div>
-                           <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-muted-foreground"/>
-                              <span className="font-mono text-xs">{incident.lat.toFixed(6)}, {incident.lon.toFixed(6)}</span>
-                           </div>
-                           <Button 
-                              size="sm"
-                              className="w-full mt-2"
-                              onClick={() => {
-                                setRouteTo([incident.lat, incident.lon]);
-                                setClickedLocation({ lat: incident.lat, lng: incident.lon, id: incident.id, name: incident.location });
-                              }}
-                           >
-                              Show on Map & Route
-                           </Button>
-                        </CollapsibleContent>
-                      </Collapsible>
+                              </CollapsibleTrigger>
+                          </div>
+                          <CollapsibleContent className="space-y-2 pt-2">
+                             <div className="flex items-center gap-2">
+                                <Users className="w-4 h-4 text-muted-foreground"/>
+                                <span>Assigned Team: <strong>{incident.team}</strong></span>
+                             </div>
+                             <div className="flex items-center gap-2">
+                                <MapPin className="w-4 h-4 text-muted-foreground"/>
+                                <span className="font-mono text-xs">{incident.lat.toFixed(6)}, {incident.lon.toFixed(6)}</span>
+                             </div>
+                             <Button 
+                                size="sm"
+                                className="w-full mt-2"
+                                onClick={() => {
+                                  setRouteTo([incident.lat, incident.lon]);
+                                  setClickedLocation({ lat: incident.lat, lng: incident.lon, id: incident.id, name: incident.location });
+                                }}
+                             >
+                                Show on Map & Route
+                             </Button>
+                          </CollapsibleContent>
+                        </Collapsible>
                     ))}
                 </CardContent>
             </Card>
@@ -557,21 +567,3 @@ const allNodes = nodes;
     </div>
   );
 }
- 
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
