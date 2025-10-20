@@ -12,7 +12,7 @@ export async function GET() {
     });
 
     // 🔥 Get the latest reading per node_id
-    const [rows] = await connection.execute(`
+    const [rows]: any = await connection.execute(`
       SELECT t1.node_id AS id,
              t1.temperature AS temp,
              t1.humidity,
