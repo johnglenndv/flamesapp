@@ -163,9 +163,9 @@ const hqIcon = new L.Icon({
 
 //NODE IMAGE==========================================================================================================================
 const nodeIcon = new L.Icon({
-    iconUrl: '/HQ.png',
-    iconRetinaUrl: '/HQ.png',
-    iconSize: [50, 50],
+    iconUrl: '/Node.png',
+    iconRetinaUrl: '/Node.png',
+    iconSize: [70, 70],
     iconAnchor: [20, 35],
     popupAnchor: [0, -30],
 });
