@@ -449,9 +449,9 @@ export default function Map({
                         <Popup><b>{gateway.name}</b><br />F.L.A.M.E.S. Gateway</Popup>
                     </Marker>
                 ))}
-                //===========================================================================================================================================================================
+                
 
-                //Marker position============================================================================================================================================================
+                
                 {startPoint && <Marker position={startPoint} icon={startIcon}><Popup>Start Point</Popup></Marker>}
                 {endPoint && <Marker position={endPoint} icon={endIcon}><Popup>End Point</Popup></Marker>}
 
