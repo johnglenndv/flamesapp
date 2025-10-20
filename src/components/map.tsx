@@ -154,9 +154,9 @@ function CustomControls() {
 
 //HEADQUARTERS PNG===================================================================================================================================
 const hqIcon = new L.Icon({
-    iconUrl: '/HQ.png',
-    iconRetinaUrl: '/HQ.png',
-    iconSize: [80, 80],
+    iconUrl: '/Gateway.png',
+    iconRetinaUrl: '/Gateway.png',
+    iconSize: [70, 70],
     iconAnchor: [40, 70],
     popupAnchor: [0, -60]
 });
@@ -165,14 +165,14 @@ const hqIcon = new L.Icon({
 const nodeIcon = new L.Icon({
     iconUrl: '/Node.png',
     iconRetinaUrl: '/Node.png',
-    iconSize: [70, 70],
+    iconSize: [60, 60],
     iconAnchor: [20, 35],
     popupAnchor: [0, -30],
 });
 //ORS STARTING POINT ICON
 const startIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-    iconSize: [25, 41],
+    iconUrl: '/StartingPoint.png',
+    iconSize: [70, 70],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowSize: [41, 41]
@@ -180,8 +180,8 @@ const startIcon = new L.Icon({
 
 //ORS END POINT ICON
 const endIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-    iconSize: [25, 41],
+    iconUrl: '/EndPoint.png',
+    iconSize: [70, 70],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowSize: [41, 41]
