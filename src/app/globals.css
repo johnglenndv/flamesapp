@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96.1%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 67% 97%;
+    --secondary-foreground: 240 10% 3.9%;
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 85%;
+    --input: 240 6% 85%;
+    --ring: 0 72% 51%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 10 40% 12%;
+    --foreground: 0 0% 98%;
+    --card: 10 35% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 10 40% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 10 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 10 25% 18%;
+    --muted-foreground: 0 5% 63%;
+    --accent: 15 90% 45%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 10 30% 25%;
+    --input: 10 30% 25%;
+    --ring: 25 95% 53%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 10 40% 14%;
+    --sidebar-foreground: 0 4.8% 95.9%;
+    --sidebar-primary: 25 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 10 30% 22%;
+    --sidebar-accent-foreground: 0 4.8% 95.9%;
+    --sidebar-border: 10 30% 25%;
+    --sidebar-ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .dark body {
+    background-image: linear-gradient(to bottom right, hsl(var(--accent)), hsl(var(--destructive) / 0.2));
+  }
+}
+
+@layer utilities {
+  .fade-in-page {
+    animation: fadeInPage 0.5s ease-in-out;
+  }
+
+  .slide-in-from-right {
+    animation: slideInFromRight 0.5s ease-out;
+  }
+  
+  .pop-down-page {
+    animation: pop-down 0.5s ease-out;
+  }
+  
+  .slideOutToLeft {
+    animation: slideOutToLeft 0.5s ease-in-out forwards;
+  }
+
+  .slideInFromLeft {
+    animation: slideInFromLeft 0.5s ease-in-out;
+  }
+
+  @keyframes fadeInPage {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pop-down {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOutToLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-beat {
+    animation: beat 1.5s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .text-flame {
+    font-family: var(--font-headline);
+    font-weight: bold;
+    background-image: linear-gradient(to right, hsl(var(--accent)), hsl(var(--destructive)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 5px hsl(var(--destructive) / 0.5);
+  }
+
+}
+
+@layer components {
+  .leaflet-bar {
+    @apply shadow-none border-0 bg-transparent;
+  }
+  
+  .map-control-button {
+      @apply bg-card/80 text-card-foreground backdrop-blur-sm shadow-lg flex items-center justify-center ring-2 ring-primary/80 transition-all;
+  }
+  
+  .map-control-button:hover {
+      @apply bg-card/95 ring-4 ring-primary;
+  }
+  
+  .zoom-control-container {
+      @apply flex flex-col items-center gap-2;
+  }
+
+  .zoom-control {
+      @apply flex flex-col rounded-lg overflow-hidden;
+  }
+
+  .zoom-control button {
+      @apply h-10 w-10 text-xl font-bold;
+  }
+  
+  .zoom-control .zoom-separator {
+      @apply h-[1px] w-full bg-border;
+  }
+
+  .location-panel {
+    @apply bg-card/90 backdrop-blur-sm p-4 rounded-lg shadow-lg;
+  }
+
+  /* Leaflet Routing Machine Customization */
+  .leaflet-routing-container {
+      @apply bg-card/80 text-card-foreground border-2 border-border backdrop-blur-sm rounded-lg shadow-lg;
+  }
+  .leaflet-routing-alt, .leaflet-routing-collapsible .leaflet-routing-instruction {
+    @apply text-foreground;
+  }
+
+  .leaflet-routing-alt:hover {
+      @apply bg-muted;
+  }
+  
+  .leaflet-routing-icon {
+      @apply bg-cover;
+      background-image: url('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png');
+  }
+
+  .leaflet-routing-icon-start {
+      background-image: url('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png');
+  }
+
+  .leaflet-routing-icon-end {
+      background-image: url('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png');
+  }
+  
+  .leaflet-routing-icon-via {
+    background-image: url('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png');
+  }
+}

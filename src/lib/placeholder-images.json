@@ -1,0 +1,22 @@
+{
+  "placeholderImages": [
+    {
+      "id": "home-hero",
+      "description": "Abstract lavender and blue geometric shapes",
+      "imageUrl": "https://picsum.photos/seed/homehero/1200/600",
+      "imageHint": "abstract geometric"
+    },
+    {
+      "id": "about-us",
+      "description": "A modern, minimalist office space with plants",
+      "imageUrl": "https://picsum.photos/seed/aboutus/400/400",
+      "imageHint": "modern office"
+    },
+    {
+      "id": "dagupan-map",
+      "description": "A map view of Dagupan City at night, inspired by Waze.",
+      "imageUrl": "https://picsum.photos/seed/dagupan/1200/800",
+      "imageHint": "city map night"
+    }
+  ]
+}
